@@ -186,74 +186,74 @@ exports.isSignedIn = expressJwt({
 });
 
 // Google Login
-const client = new OAuth2Client(GOOGLE_CLIENT_ID);
-// console.log();
-exports.googleController = (req, res) => {
-  try {
-    const { idToken } = req.body;
-    // console.log("IDToken", idToken);
+// const client = new OAuth2Client(GOOGLE_CLIENT_ID);
+// // console.log();
+// exports.googleController = (req, res) => {
+//   try {
+//     const { idToken } = req.body;
+//     // console.log("IDToken", idToken);
 
-    client
-      .verifyIdToken({
-        idToken,
-        audience: GOOGLE_CLIENT_ID,
-      })
-      .then((response) => {
-        const { email_verified, name, email } = response.payload;
+//     client
+//       .verifyIdToken({
+//         idToken,
+//         audience: GOOGLE_CLIENT_ID,
+//       })
+//       .then((response) => {
+//         const { email_verified, name, email } = response.payload;
 
-        if (email_verified) {
-          User.findOne({ email }).exec((err, user) => {
-            if (user) {
-              const token = jwt.sign(
-                {
-                  _id: user._id,
-                },
-                JWT_SECRET,
-                {
-                  expiresIn: "7d",
-                }
-              );
+//         if (email_verified) {
+//           User.findOne({ email }).exec((err, user) => {
+//             if (user) {
+//               const token = jwt.sign(
+//                 {
+//                   _id: user._id,
+//                 },
+//                 JWT_SECRET,
+//                 {
+//                   expiresIn: "7d",
+//                 }
+//               );
 
-              const { _id, email, username, role } = user;
-              return res.json({
-                token,
-                user: { _id, email, username, role },
-              });
-            } else {
-              let password = email + JWT_SECRET;
+//               const { _id, email, username, role } = user;
+//               return res.json({
+//                 token,
+//                 user: { _id, email, username, role },
+//               });
+//             } else {
+//               let password = email + JWT_SECRET;
 
-              let username = name;
-              user = new User({ username, email, password });
-              user.save((err, data) => {
-                if (err) {
-                  // console.log("google error", err);
-                  return res.status(400).json({
-                    error: "User signup failed with google",
-                  });
-                }
+//               let username = name;
+//               user = new User({ username, email, password });
+//               user.save((err, data) => {
+//                 if (err) {
+//                   // console.log("google error", err);
+//                   return res.status(400).json({
+//                     error: "User signup failed with google",
+//                   });
+//                 }
 
-                const token = jwt.sign({ _id: data._id }, JWT_SECRET, {
-                  expiresIn: "7d",
-                });
+//                 const token = jwt.sign({ _id: data._id }, JWT_SECRET, {
+//                   expiresIn: "7d",
+//                 });
 
-                const { _id, email, username, role } = data;
-                return res.json({
-                  token,
-                  user: { _id, email, username, role },
-                });
-              });
-            }
-          });
-        } else {
-          return res.status(400).json({
-            error: "Google login failed. Try again",
-          });
-        }
-      });
-  } catch (error) {
-    console.log("Something Went Wrong", error);
-  }
-};
+//                 const { _id, email, username, role } = data;
+//                 return res.json({
+//                   token,
+//                   user: { _id, email, username, role },
+//                 });
+//               });
+//             }
+//           });
+//         } else {
+//           return res.status(400).json({
+//             error: "Google login failed. Try again",
+//           });
+//         }
+//       });
+//   } catch (error) {
+//     console.log("Something Went Wrong", error);
+//   }
+// };
 
 exports.forgotPassword = (req, res) => {
   const errors = validationResult(req);
