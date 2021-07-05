@@ -1,0 +1,96 @@
+.App {
+  background-color: black;
+  margin: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.container-fluid {
+  position: relative;
+  height: 100%;
+}
+
+footer {
+  position: relative;
+  background-color: #343a40;
+  color: aliceblue;
+  bottom: 0;
+  width: 100%;
+  min-height: 3rem;
+  margin-top: 3rem;
+  padding: 0.5rem;
+}
+
+Nav {
+  font-size: larger;
+  font-weight: 700;
+  color: white;
+}
+
+.fa-blog {
+}
+/* .title {
+  color: brown;
+  text-align: center;
+} */
+
+.signup {
+  margin: 10vh auto;
+}
+
+#card {
+  background-color: #284b63;
+  border: 3px solid #e5b3fe;
+  color: #deff0a;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: cursive;
+  text-align: justify;
+}
+
+#card .name {
+  color: #f7fff7;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card-img-top {
+  width: 80%;
+  height: 27rem;
+}
+
+.card-title {
+  color: #f72585;
+  text-align: left;
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+#card .btn {
+  margin: 1rem;
+}
+.login-or {
+  position: relative;
+  color: rgb(0, 0, 0);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.span-or {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 0.1rem;
+  margin-left: -1.5rem;
+  background-color: #fff;
+  width: 50px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.hr-or {
+  height: 2px;
+  border-top: 1px solid rgb(0 0 0);
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
