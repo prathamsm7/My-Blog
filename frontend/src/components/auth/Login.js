@@ -26,21 +26,21 @@ const Login = ({ history }) => {
 
   //Signin with google
   //Sending google token
-  const sendGoogleToken = (tokenId) => {
-    axios
-      .post("/googlelogin", {
-        idToken: tokenId,
-      })
-      .then((res) => {
-        informParent(res);
-        // console.log(res.data);
-        toast.info(`Welcome back ${res.data.user.username}`);
-      })
-      .catch((error) => {
-        toast.warning("google sign in error");
-        console.log(error);
-      });
-  };
+//   const sendGoogleToken = (tokenId) => {
+//     axios
+//       .post("/googlelogin", {
+//         idToken: tokenId,
+//       })
+//       .then((res) => {
+//         informParent(res);
+//         // console.log(res.data);
+//         toast.info(`Welcome back ${res.data.user.username}`);
+//       })
+//       .catch((error) => {
+//         toast.warning("google sign in error");
+//         console.log(error);
+//       });
+//   };
 
   //Redirect after login
   const informParent = (response) => {
@@ -149,7 +149,7 @@ const Login = ({ history }) => {
               </div>
 
               <GoogleLogin
-                clientId={`${process.env.REACT_APP_GOOGLE_CLIENT}`}
+//                 clientId={`${process.env.REACT_APP_GOOGLE_CLIENT}`}
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 cookiePolicy={"single_host_origin"}
