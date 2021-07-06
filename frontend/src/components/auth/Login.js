@@ -43,17 +43,17 @@ const Login = ({ history }) => {
 //   };
 
   //Redirect after login
-  const informParent = (response) => {
-    authenticate(response, () => {
-      isAuthenticated() && isAuthenticated().data.user.role === "Admin"
-        ? history.push("/admin")
-        : history.push("/private");
-    });
-  };
+//   const informParent = (response) => {
+//     authenticate(response, () => {
+//       isAuthenticated() && isAuthenticated().data.user.role === "Admin"
+//         ? history.push("/admin")
+//         : history.push("/private");
+//     });
+//   };
 
-  const responseGoogle = (response) => {
-    sendGoogleToken(response.tokenId);
-  };
+//   const responseGoogle = (response) => {
+//     sendGoogleToken(response.tokenId);
+//   };
 
   const handelSubmit = (e) => {
     e.preventDefault();
@@ -148,22 +148,22 @@ const Login = ({ history }) => {
                 </div>
               </div>
 
-              <GoogleLogin
-//                 clientId={`${process.env.REACT_APP_GOOGLE_CLIENT}`}
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={"single_host_origin"}
-                render={(renderProps) => (
-                  <button
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}
-                    className="btn btn-outline-warning text-danger btn-rounded"
-                  >
-                    <i className="fab fa-google " />
-                    <span className="ml-4">Sign In with Google</span>
-                  </button>
-                )}
-              ></GoogleLogin>
+//               <GoogleLogin
+// //                 clientId={`${process.env.REACT_APP_GOOGLE_CLIENT}`}
+//                 onSuccess={responseGoogle}
+//                 onFailure={responseGoogle}
+//                 cookiePolicy={"single_host_origin"}
+//                 render={(renderProps) => (
+//                   <button
+//                     onClick={renderProps.onClick}
+//                     disabled={renderProps.disabled}
+//                     className="btn btn-outline-warning text-danger btn-rounded"
+//                   >
+//                     <i className="fab fa-google " />
+//                     <span className="ml-4">Sign In with Google</span>
+//                   </button>
+//                 )}
+//               ></GoogleLogin>
             </Card.Body>
           </Card>
         </div>
