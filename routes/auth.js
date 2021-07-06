@@ -55,8 +55,7 @@ router.get(
   }
 );
 
-//Google Login
-router.post("/googlelogin", googleController);
+
 
 router.put("/forgot-password", forgotPassword);
 router.put("/resetpassword", resetPassword);
