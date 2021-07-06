@@ -140,14 +140,6 @@ const Login = ({ history }) => {
                   <Link to="/forgot-password"> Forgot Password?</Link>
                 </p>
               </form>
-
-              <div className="col-md-12 ">
-                <div className="login-or">
-                  <hr className="hr-or" />
-                  <span className="span-or">or</span>
-                </div>
-              </div>
-
             </Card.Body>
           </Card>
         </div>
