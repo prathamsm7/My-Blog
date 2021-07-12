@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const User = require("./user");
-const Comment = require("./comment");
 const moment = require("moment");
 const now = moment();
 
